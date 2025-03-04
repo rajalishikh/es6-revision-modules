@@ -1,19 +1,17 @@
 const getStoreCart=()=>{
-    const getStoreContainer =localStorage.getItem('cart')
-    if(getStoreCart){
-        let convert=JSON.parse(getStoreContainer)
-        return convert
+    let bring_container=localStorage.getItem('cart')
+    if(bring_container){
+        return JSON.parse(bring_container)
     }
     return []
 }
-const saveCart=(cart)=>{
-    
-   let save_container=JSON.stringify(cart)
-   localStorage.setItem("cart",save_container)
+let save_local_storage=(cart)=>{
+    let save_cart=JSON.stringify(cart)
+    localStorage.setItem("cart",save_cart)
 }
-const addToLs=id=>{
-    let cart=getStoreCart()
-    cart.push(id)
-    saveCart(cart)
+const addIdToLs=(id)=>{
+    const find_container=getStoreCart()
+    find_container.push(id)
+    save_local_storage(find_container)
 }
-export default addToLs
+export default addIdToLs
