@@ -1,7 +1,7 @@
 import React from 'react';
 import './Bottle_Details.css';
 
-const Bottle_Details = ({bottle_de}) => {
+const Bottle_Details = ({bottle_de, handle}) => {
 
     const {category,seller,img,name}=bottle_de
     return (
@@ -11,6 +11,7 @@ const Bottle_Details = ({bottle_de}) => {
             <p>Details:{category}</p>
             <p>Name:{name}</p>
             <p>Seller:{seller}</p>
+            <button onClick={()=>handle(bottle_de)} >BuyIt</button>
             
         </div>
     );
