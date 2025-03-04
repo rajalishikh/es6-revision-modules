@@ -1,7 +1,7 @@
 import './Watch.css';
 
-const Watch = ({item}) => {
-    const {name,price}=item
+const Watch = ({watch_info}) => {
+    const {name,price}=watch_info
  return (
         <div className='border_name'>
             <h1>Watches</h1>

@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import './App.css'
 import Watch from './Component/Watch/Watch'
 
@@ -5,21 +6,22 @@ import Watch from './Component/Watch/Watch'
 
 
 function App() {
-  const Watches=[
-    {id:1, name:"Walton",price:"2000"},
-    {id:2, name:"Walton",price:"2000"},
-    {id:3, name:"Walton",price:"2000"},
-    
-  ]
+  const [data,setData]=useState([])
+  useEffect(()=>{
+    fetch("watch.json")
+    .then(res=>res.json())
+    .then(data1=>setData(data1))
+  },[])
+  
   
   return (
     <>
       
       <h1> React Part Start1</h1>
       {
-        Watches.map(watch=><Watch key={watch.id} item={watch}></Watch>)
-
+        data.map(item=><Watch key={item.id} watch_info={item}></Watch>)
       }
+      
       
       </>
   )
