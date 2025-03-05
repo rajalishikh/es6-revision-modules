@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { addToLs, getStoreCart } from '../../Utility/store';
+import { addToLs, getStoreCart, removeToLs } from '../../Utility/store';
 import Bottle_Details from '../Bottles_Details/Bottle_Details';
 import Cart from '../Cart/Cart';
 import './Bottle.css';
@@ -37,6 +37,15 @@ const Bottle = () => {
         
     },[bottle])
 
+    // remove product from bottle 
+
+    const removeHandler=product=>{
+        console.log("remove product",product)
+        const remove_bottle=bottle.filter(remove_item=>remove_item.id !== product )
+        setBottle(remove_bottle)
+        removeToLs(product)
+    }
+
     // calculate the how much buy you Bottles
     const handleBottle=(details_Bottle)=>{
         const new_array=[...cart,details_Bottle]
@@ -48,7 +57,7 @@ const Bottle = () => {
         <div>
             <h2>Bottle container</h2>
             <p>Total bottle you are buy:{cart.length}</p>
-            <Cart cart={cart}></Cart>
+            <Cart cart={cart} remove={removeHandler}></Cart>
             
             <div className='bottle'>
             {

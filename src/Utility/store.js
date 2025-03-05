@@ -16,5 +16,10 @@ const addToLs=(id)=>{
     cart.push(id)
     saveLocalStorage(cart)
 }
-export { addToLs, getStoreCart }
+const removeToLs=(id2)=>{
+    const removeId=getStoreCart()
+    const removeLs=removeId.filter((item)=>item!==id2)
+   saveLocalStorage(removeLs)
+}
+export { addToLs, getStoreCart, removeToLs }
 
