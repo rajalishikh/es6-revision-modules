@@ -1,17 +1,20 @@
 const getStoreCart=()=>{
-    let bring_container=localStorage.getItem('cart')
-    if(bring_container){
-        return JSON.parse(bring_container)
+    const getContainer=localStorage.getItem("cart")
+    if(getContainer){
+        return JSON.parse(getContainer)
     }
-    return []
+    return[]
 }
-let save_local_storage=(cart)=>{
-    let save_cart=JSON.stringify(cart)
-    localStorage.setItem("cart",save_cart)
+// save in local storage 
+const saveLocalStorage=(cart)=>{
+    const save_cart_in_local_storage=JSON.stringify(cart)
+    localStorage.setItem("cart",save_cart_in_local_storage)
 }
-const addIdToLs=(id)=>{
-    const find_container=getStoreCart()
-    find_container.push(id)
-    save_local_storage(find_container)
+
+// add the data id
+const addToLs=(id)=>{
+    const cart=getStoreCart()
+    cart.push(id)
+    saveLocalStorage(id)
 }
-export default addIdToLs
+export { addToLs }

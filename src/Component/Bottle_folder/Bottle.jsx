@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Bottle_Details from '../Bottles_Details/Bottle_Details';
 
-import addIdToLs from '../../Utility/store';
 import './Bottle.css';
 
 const Bottle = () => {
@@ -19,7 +18,7 @@ const Bottle = () => {
         const new_array=[...cart,details_Bottle]
         console.log(details_Bottle)
         setCart(new_array)
-        addIdToLs(details_Bottle.id)
+        
        
     }
     return (
