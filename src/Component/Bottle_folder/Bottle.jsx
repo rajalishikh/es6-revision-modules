@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Bottle_Details from '../Bottles_Details/Bottle_Details';
-
 import { addToLs, getStoreCart } from '../../Utility/store';
+import Bottle_Details from '../Bottles_Details/Bottle_Details';
+import Cart from '../Cart/Cart';
 import './Bottle.css';
 
+// Main container 
 const Bottle = () => {
     const [bottle,setBottle]=useState([])
     const[cart,setCart]=useState([])
@@ -47,6 +48,8 @@ const Bottle = () => {
         <div>
             <h2>Bottle container</h2>
             <p>Total bottle you are buy:{cart.length}</p>
+            <Cart cart={cart}></Cart>
+            
             <div className='bottle'>
             {
                 bottle.map((item)=><Bottle_Details key={item.id} bottle_de={item} handle={handleBottle} ></Bottle_Details>)
