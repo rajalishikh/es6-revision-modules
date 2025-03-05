@@ -16,5 +16,5 @@ const addToLs=(id)=>{
     cart.push(id)
     saveLocalStorage(cart)
 }
-export { addToLs }
+export { addToLs, getStoreCart }
 
